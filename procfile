@@ -1,1 +1,1 @@
-web: gunicorn yva_project.wsgi --log-file -
+web: gunicorn yva_project.wsgi:application --log-file -
