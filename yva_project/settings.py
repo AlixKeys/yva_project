@@ -8,10 +8,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-a-nnb^o^8psuc10u&blm6c3d1%hn(uu7lea=53v_z^m)f1&_q+'
 
 # En production, DEBUG doit être désactivé !
-DEBUG = False
+DEBUG = True
 
 # Autoriser les domaines Render (et sous-domaines)
-ALLOWED_HOSTS = ['.onrender.com']
+ALLOWED_HOSTS = ['*']
 
 # Application definition
 INSTALLED_APPS = [
@@ -79,6 +79,8 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'yva/static')]
+
 # Supprimé STATICFILES_DIRS pour éviter conflit en prod
 
 # Default primary key field type
