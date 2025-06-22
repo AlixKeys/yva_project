@@ -1,0 +1,81 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Document généré - YVA</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <style>
+    body {
+      background-color: #fffbea;
+      font-family: 'Segoe UI', sans-serif;
+    }
+    .card {
+      border-radius: 1rem;
+      box-shadow: 0 5px 12px rgba(0,0,0,0.1);
+      background-color: white;
+      white-space: pre-wrap;
+      padding: 20px;
+      max-width: 800px;
+      margin: auto;
+      min-height: 300px;
+      overflow-wrap: break-word;
+    }
+    .btn-warning {
+      background-color: #ffc107;
+      border: none;
+    }
+    .btn-warning:hover {
+      background-color: #e0a800;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container py-5">
+    <div class="text-center mb-4">
+      <img src="{% static 'yva_logo.png' %}" alt="YVA Logo" width="100" />
+      <h2 class="mt-3">📄 Document généré par YVA</h2>
+      <p class="text-muted">Voici ton CV ou ta lettre de motivation personnalisée.</p>
+    </div>
+
+    <div id="docContent" class="card mb-4">{{ doc }}</div>
+
+    <div class="text-center mb-3">
+      <button class="btn btn-warning me-2" onclick="copyToClipboard()">📋 Copier le texte</button>
+      <button class="btn btn-warning" onclick="downloadPDF()">⬇️ Télécharger en PDF</button>
+    </div>
+
+    <div class="text-center">
+      <a href="{% url 'generate_doc' %}" class="btn btn-warning">↩️ Revenir au formulaire</a>
+    </div>
+
+    <footer class="text-center mt-5">
+      <p class="text-muted">&copy; 2025 YVA - Coach IA pour la jeunesse togolaise</p>
+    </footer>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script>
+    function copyToClipboard() {
+      const text = document.getElementById('docContent').innerText;
+      navigator.clipboard.writeText(text).then(() => {
+        alert('Texte copié dans le presse-papiers !');
+      }).catch(() => {
+        alert('Erreur lors de la copie.');
+      });
+    }
+
+    async function downloadPDF() {
+      const { jsPDF } = window.jspdf;
+      const doc = new jsPDF();
+      const text = document.getElementById('docContent').innerText;
+
+      const splitText = doc.splitTextToSize(text, 180);
+      doc.text(splitText, 15, 20);
+      doc.save('document_yva.pdf');
+    }
+  </script>
+
+</body>
+</html>

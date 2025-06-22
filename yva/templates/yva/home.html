@@ -1,0 +1,114 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>YVA - Your Virtual Aide</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="icon" type="image/png" href="{% static 'yva_favicon.png' %}">
+  <style>
+    body {
+      background-color: #fffbea;
+      font-family: 'Segoe UI', sans-serif;
+    }
+    .card-title {
+      color: #d97706; /* orange foncé */
+    }
+    .btn-primary {
+      background-color: #256d1b;
+      border-color: #256d1b;
+    }
+    .btn-primary:hover {
+      background-color: #1b4d13;
+    }
+    .btn-success {
+      background-color: #ff8c00;
+      border-color: #ff8c00;
+    }
+    .btn-success:hover {
+      background-color: #cc7000;
+    }
+    .btn-warning {
+      background-color: #ffc107;
+      border-color: #ffc107;
+    }
+    .btn-warning:hover {
+      background-color: #e0a800;
+    }
+    .btn-info {
+      background-color: #6f42c1;
+      border-color: #6f42c1;
+    }
+    .btn-info:hover {
+      background-color: #5a32a3;
+    }
+  </style>
+</head>
+<body class="bg-light">
+
+  <div class="container py-5">
+
+    <div class="text-center mb-3">
+      <img src="{% static 'yva_logo.png' %}" alt="Logo YVA" width="100">
+    </div>
+
+    <div class="text-center mb-4">
+      <h1 class="display-4"> YVA - Your Virtual Aide</h1>
+      <p>L'assistant IA pour guider, motiver et former la jeunesse togolaise.</p>
+    </div>
+
+
+    <div class="row g-4">
+      <!-- Orientation -->
+      <div class="col-md-6">
+        <div class="card shadow rounded-4 h-100">
+          <div class="card-body">
+            <h5 class="card-title"> Orientation Scolaire & Pro</h5>
+            <p class="card-text">Fais un test simple et découvre ton profil et des idées de filières ou métiers adaptés.</p>
+            <a href="{% url 'orientation' %}" class="btn btn-primary">Faire le test</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mini-formations -->
+      <div class="col-md-6">
+        <div class="card shadow rounded-4 h-100">
+          <div class="card-body">
+            <h5 class="card-title"> Mini-Formations</h5>
+            <p class="card-text">Choisis un domaine et reçois une formation pratique IA, courte et adaptée à ton niveau.</p>
+            <a href="{% url 'formations' %}" class="btn btn-primary">Explorer</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- CV & lettre -->
+      <div class="col-md-6">
+        <div class="card shadow rounded-4 h-100">
+          <div class="card-body">
+            <h5 class="card-title"> Générateur de CV & Lettre</h5>
+            <p class="card-text">Remplis un petit formulaire et obtiens un CV ou une lettre de motivation bien rédigée.</p>
+            <a href="{% url 'generate_doc' %}" class="btn btn-primary">Générer</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Coach IA -->
+      <div class="col-md-6">
+        <div class="card shadow rounded-4 h-100">
+          <div class="card-body">
+            <h5 class="card-title"> Coach IA - Motivation</h5>
+            <p class="card-text">Exprime-toi librement et reçois des messages de soutien et de motivation.</p>
+            <a href="{% url 'conseiller' %}" class="btn btn-primary">Lui parler</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="text-center mt-5">
+      <p class="text-muted">&copy; 2025 YVA - Coach IA pour la jeunesse togolaise</p>
+    </footer>
+
+  </div>
+
+</body>
+</html>
