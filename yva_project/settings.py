@@ -24,10 +24,10 @@ SECRET_KEY = 'django-insecure-a-nnb^o^8psuc10u&blm6c3d1%hn(uu7lea=53v_z^m)f1&_q+
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-
 import os
 
-ALLOWED_HOSTS = os.getenv("RENDER_EXTERNAL_HOSTNAME", "localhost").split(",")
+ALLOWED_HOSTS = ['.onrender.com']
+
 
 
 
@@ -120,6 +120,7 @@ USE_TZ = True
 
 
 STATIC_URL = 'static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'yva/static')]
 
 # Default primary key field type
